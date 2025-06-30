@@ -1,0 +1,49 @@
+tree /f /a arborescence.txt
+
+I:.
+|   .gitignore
+|   arborescence.txt
+|   Projet_DE_Cleaner.docx
+|   README.md
+|   requirements.txt
+|   todo.txt
+|   
++---datalexir
+|   |   __init__.py
+|   |   
+|   +---datalidation
+|   |   |   __init__.py
+|   |   |   
+|   |   +---descriptives
+|   |   |       __init__.py
+|   |   |       
+|   |   \---numerics
+|   |           __init__.py
+|   |           
+|   +---utils
+|   |   |   __init__.py
+|   |   |   
+|   |   +---dataframes
+|   |   |       __init__.py
+|   |   |       
+|   |   \---text
+|   |           text_cleaner.py
+|   |           __init__.py
+|   |           
+|   \---visual
+|       |   __init__.py
+|       |   
+|       +---char
+|       |       __init__.py
+|       |       
+|       \---plot
+|               __init__.py
+|               
++---documentation
+|       sommaire.md
+|       
++---notebooks
+|       datalyse.ipynb
+|       
++---test
+\---venv
