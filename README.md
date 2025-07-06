@@ -25,15 +25,34 @@ Le projet devra aboutir à une distribution pypi.
 ## Structure du projet à compléter
 ```
 datalexir/
-    datalidation/
-        descriptives/
-        numerics/
-    utils/
-        dataframes/
-        text/
-    visual/
-        char/
-        plot/
+    elexbook/
+        exploration/
+            visualisation           # Visualisation de la donnée
+            interactif              # Gestion interactive sur notebook 
+        nettoyage/
+            texte
+            float_int
+            time_date
+        conversion/
+            texte
+            float_int
+            time_date
+        batch/
+            objets
+            dataframe
+        echantillons/
+            nb
+            %
+        pipelinisation/
+            recupération/dict_retour      
+    elexdas/
+        nettoyage/
+        conversion/
+        batch/
+    elexpark/
+        nettoyage/
+        conversion/
+        batch/
 notebooks/
 test/
 ```
