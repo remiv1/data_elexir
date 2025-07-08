@@ -11,33 +11,33 @@ I:.
 +---datalexir
 |   |   __init__.py
 |   |   
-|   +---datalidation
+|   +---elexbook
 |   |   |   __init__.py
 |   |   |   
-|   |   +---descriptives
-|   |   |       __init__.py
+|   |   +---
+|   |   |
 |   |   |       
-|   |   \---numerics
-|   |           __init__.py
+|   |   \---
 |   |           
-|   +---utils
+|   |           
+|   +---elexdas
 |   |   |   __init__.py
 |   |   |   
-|   |   +---dataframes
-|   |   |       __init__.py
-|   |   |       
-|   |   \---text
-|   |           text_cleaner.py
-|   |           __init__.py
+|   |   +---
+|   |   |   
+|   |   |      
+|   |   \---
+|   |       
+|   |       
 |   |           
-|   \---visual
+|   \---elexpark
 |       |   __init__.py
 |       |   
-|       +---char
-|       |       __init__.py
+|       +---
+|       |
 |       |       
-|       \---plot
-|               __init__.py
+|       \---
+|               
 |               
 +---documentation
 |       sommaire.md
