@@ -1,0 +1,37 @@
+# Dépendances de développement pour DataLexir
+
+# Test framework
+pytest>=6.0
+pytest-cov>=2.0
+pytest-mock>=3.0
+
+# Code quality
+black>=22.0
+flake8>=4.0
+isort>=5.0
+mypy>=0.950
+
+# Type stubs
+types-setuptools
+types-requests
+
+# Documentation
+sphinx>=4.0
+sphinx-rtd-theme>=1.0
+myst-parser>=0.17
+
+# Jupyter development
+jupyter>=1.0
+notebook>=6.0
+jupyterlab>=3.0
+
+# Package building
+build>=0.7
+twine>=4.0
+
+# Pre-commit hooks (optionnel)
+pre-commit>=2.15
+
+# Utilitaires de développement
+ipdb>=0.13  # Debugger IPython
+tox>=3.24   # Tests multi-environnements
