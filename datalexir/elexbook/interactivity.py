@@ -1,7 +1,9 @@
-import ipywidgets as widgets
-from IPython.display import display
+import ipywidgets as widgets    # type: ignore
+from IPython.display import display # type: ignore
+import pandas as pd
+from typing import Dict, Any
 
-def assign_column_types_with_error_handling(df):
+def assign_column_types_with_error_handling(df: pd.DataFrame):
     type_widgets = {}
     for col in df.columns:
         type_widgets[col] = widgets.Dropdown(
@@ -11,7 +13,7 @@ def assign_column_types_with_error_handling(df):
         )
     apply_button = widgets.Button(description="Appliquer")
 
-    def apply_types(change):
+    def apply_types():
         new_types = {}
         for col, widget in type_widgets.items():
             while True:
