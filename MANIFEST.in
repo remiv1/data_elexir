@@ -1,0 +1,44 @@
+# MANIFEST.in - Fichiers à inclure dans la distribution DataLexir
+
+# Documentation
+include README.md
+include LICENSE
+include CONTRIBUTING.md
+include CHANGELOG.md
+
+# Configuration
+include pyproject.toml
+include setup.py
+include requirements*.txt
+
+# Code source
+recursive-include datalexir *.py
+recursive-include datalexir *.json
+recursive-include datalexir *.yaml
+recursive-include datalexir *.yml
+
+# Tests
+recursive-include tests *.py
+recursive-include tests *.json
+recursive-include tests *.csv
+
+# Documentation
+recursive-include docs *.md
+recursive-include docs *.rst
+recursive-include docs *.txt
+
+# Notebooks d'exemple
+recursive-include notebooks *.ipynb
+recursive-include notebooks *.md
+
+# Exclure les fichiers de développement
+exclude .gitignore
+exclude .pre-commit-config.yaml
+exclude tox.ini
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude * .DS_Store
+recursive-exclude * .pytest_cache
+recursive-exclude * .mypy_cache
+recursive-exclude * .coverage
+recursive-exclude * htmlcov
