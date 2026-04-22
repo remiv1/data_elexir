@@ -1,3 +1,6 @@
+# Elexbook (module de création de pipeline exploratoire)
+
+```python
 from datalexir import Elexdas
 
 # Initialisation
@@ -18,3 +21,4 @@ elex.dropna().rename(columns={"Nom": "name"}).fillna(value=0)
 
 print(elex.sample.head())       # Données nettoyées (échantillon)
 print(elex.history)             # Log de toutes les opérations
+```
