@@ -4,22 +4,23 @@ Merci de votre intérêt pour contribuer à DataLexir ! 🎉
 
 Ce guide vous aidera à comprendre comment participer au développement de notre bibliothèque d'exploration de données et de génération de pipelines.
 
-## 🤝 Comment Contribuer
+## Comment Contribuer
 
 ### Types de Contributions
 
 Nous accueillons plusieurs types de contributions :
 
-- 🐛 **Corrections de bugs** : Signalement et correction de problèmes
-- ✨ **Nouvelles fonctionnalités** : Ajout de nouvelles capacités
-- 📚 **Documentation** : Amélioration de la documentation et des exemples
-- 🧪 **Tests** : Ajout de tests pour améliorer la couverture
-- 🎨 **Interface utilisateur** : Amélioration des widgets Jupyter
-- ⚡ **Performance** : Optimisation des performances
+- **Corrections de bugs** : Signalement et correction de problèmes
+- **Nouvelles fonctionnalités** : Ajout de nouvelles capacités
+- **Documentation** : Amélioration de la documentation et des exemples
+- **Tests** : Ajout de tests pour améliorer la couverture
+- **Interface utilisateur** : Amélioration des widgets Jupyter
+- **Performance** : Optimisation des performances
 
 ### Workflow de Contribution
 
 1. **Fork du Repository**
+
    ```bash
    # Fork le repository sur GitHub
    # Puis clone votre fork
@@ -28,6 +29,7 @@ Nous accueillons plusieurs types de contributions :
    ```
 
 2. **Configuration de l'Environnement de Développement**
+
    ```bash
    # Créer un environnement virtuel
    python -m venv venv
@@ -40,6 +42,7 @@ Nous accueillons plusieurs types de contributions :
    ```
 
 3. **Créer une Branche**
+
    ```bash
    git checkout -b feature/ma-nouvelle-fonctionnalite
    # ou
@@ -53,6 +56,7 @@ Nous accueillons plusieurs types de contributions :
    - Documentez vos changements
 
 5. **Tests et Validation**
+
    ```bash
    # Exécuter les tests
    pytest tests/
@@ -66,6 +70,7 @@ Nous accueillons plusieurs types de contributions :
    ```
 
 6. **Commit et Push**
+
    ```bash
    git add .
    git commit -m "feat: description claire de la fonctionnalité"
@@ -126,7 +131,7 @@ def process_sample(df: pd.DataFrame, sample_size: float = 0.3) -> pd.DataFrame:
 
 Utilisez la convention [Conventional Commits](https://www.conventionalcommits.org/) :
 
-```
+```txt
 type(scope): description
 
 [corps optionnel]
@@ -135,6 +140,7 @@ type(scope): description
 ```
 
 Types de commits :
+
 - `feat`: nouvelle fonctionnalité
 - `fix`: correction de bug
 - `docs`: modification de documentation
@@ -144,18 +150,19 @@ Types de commits :
 - `chore`: tâches de maintenance
 
 Exemples :
-```
+
+```txt
 feat(elexbook): ajouter support pour les DataFrames Polars
 fix(elexdas): corriger la conversion des types datetime
 docs: mettre à jour le guide d'installation
 test(elexpark): ajouter tests pour les transformations Spark
 ```
 
-## 🧪 Tests
+## Tests
 
 ### Structure des Tests
 
-```
+```txt
 tests/
 ├── unit/
 │   ├── test_elexbook.py
@@ -212,7 +219,7 @@ Visez une couverture de code d'au moins 80% :
 pytest --cov=datalexir --cov-report=html
 ```
 
-## 📚 Documentation
+## Documentation
 
 ### Documentation du Code
 
@@ -226,7 +233,7 @@ pytest --cov=datalexir --cov-report=html
 - **Notebooks** : Créez des notebooks de démonstration dans `notebooks/examples/`
 - **Guide API** : Documentez toutes les API publiques
 
-## 🐛 Signalement de Bugs
+## Signalement de Bugs
 
 Utilisez le template GitHub Issues pour signaler des bugs :
 
@@ -259,7 +266,7 @@ Si applicable, ajoutez des captures d'écran.
 Tout autre contexte utile pour le problème.
 ```
 
-## ✨ Proposition de Fonctionnalités
+## Proposition de Fonctionnalités
 
 Utilisez GitHub Discussions pour proposer de nouvelles fonctionnalités :
 
@@ -268,7 +275,7 @@ Utilisez GitHub Discussions pour proposer de nouvelles fonctionnalités :
 3. **Proposez** une solution avec des exemples d'utilisation
 4. **Discutez** avec la communauté
 
-## 📞 Communication
+## Communication
 
 ### Canaux de Communication
 
@@ -283,25 +290,22 @@ Nous attendons de tous les contributeurs qu'ils respectent notre code de conduit
 - **Soyez respectueux** : Traitez tous les membres de la communauté avec respect
 - **Soyez constructif** : Donnez des feedbacks constructifs et utiles
 - **Soyez collaboratif** : Travaillez ensemble vers des objectifs communs
-- **Soyez inclusive** : Accueillez les contributeurs de tous horizons
+- **Soyez inclusifs** : Accueillez les contributeurs de tous horizons
 
-## 🎯 Roadmap des Contributions
+## Roadmap des Contributions
 
 ### Priorités Actuelles
 
-1. **Amélioration de l'interface utilisateur** des widgets Jupyter
-2. **Support de nouveaux formats** de données (Parquet, Avro)
-3. **Optimisation des performances** pour les gros datasets
-4. **Documentation interactive** avec exemples en live
+1. **Construction du modèle** : Finaliser la structure de base et les fonctionnalités principales
 
 ### Domaines de Contribution Recherchés
 
 - **Frontend/UX** : Amélioration des widgets interactifs
 - **Performance** : Optimisation des algorithmes
 - **Documentation** : Guides et tutoriels
-- **Tests** : Amélioration de la couverture de tests
+- **Tests** : Création des tests unitaires et d'intégration
 
-## 🏆 Reconnaissance
+## Reconnaissance
 
 Les contributeurs réguliers seront :
 
@@ -309,7 +313,7 @@ Les contributeurs réguliers seront :
 - **Ajoutés** à la liste des contributeurs dans le README
 - **Invités** à rejoindre l'équipe core si approprié
 
-## 📋 Checklist pour les Pull Requests
+## Checklist pour les Pull Requests
 
 Avant de soumettre votre PR, vérifiez :
 
@@ -318,7 +322,7 @@ Avant de soumettre votre PR, vérifiez :
 - [ ] Les types sont correctement annotés (`mypy`)
 - [ ] La documentation est mise à jour
 - [ ] Les exemples fonctionnent
-- [ ] Le changlog est mis à jour (si applicable)
+- [ ] Le changelog est mis à jour (si applicable)
 - [ ] Les tests couvrent les nouvelles fonctionnalités
 
 ---

@@ -1,4 +1,4 @@
-# 🔮 DataLexir
+# DataLexir
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/downloads/)
@@ -6,122 +6,42 @@
 
 > **Une bibliothèque Python révolutionnaire pour l'exploration interactive de données et la génération automatique de pipelines**
 
-DataLexir transforme votre processus d'exploration de données en permettant de travailler sur des échantillons légers dans des notebooks Jupyter, puis de générer automatiquement des pipelines de production pour Pandas et Spark.
+DataLexir transforme votre processus d'exploration de données en permettant de travailler sur des échantillons légers dans des notebooks Jupyter, puis de générer automatiquement des pipelines de production pour Pandas et Spark ou encore dans des langages compilés comme Go et Rust.
 
 ## 🎯 Vision
 
-DataLexir résout un problème majeur des gestionnaires de données : **comment explorer efficacement de gros volumes de données et transformer cette exploration en pipeline de production reproductible ?**
+DataLexir résout un problème majeur des gestionnaires de données : **comment explorer efficacement de gros volumes de données et transformer cette exploration en pipeline de production reproductible et léger ?**
 
-### ✨ Fonctionnalités clés
+## Problématique
+
+Les gestionnaires de données font face à des défis majeurs :
+
+- **Exploration inefficace** : Travailler sur des échantillons limités dans des notebooks, puis réécrire manuellement les transformations pour les appliquer à l'ensemble des données.
+- **Manque de traçabilité** : Difficulté à suivre les transformations appliquées lors de l'exploration, ce qui rend la reproduction et le débogage complexes.
+- **Transition laborieuse vers la production** : Convertir les étapes d'exploration en pipelines de production est souvent fastidieux et sujet à erreurs.
+- **Performance** : Travailler sur des échantillons peut ne pas refléter les performances réelles sur l'ensemble des données, rendant l'optimisation difficile.
+- **Langages compilés** : Les gestionnaires de données qui souhaitent utiliser des langages compilés pour la production doivent souvent réécrire entièrement leur logique d'exploration.
+- **Support multi-moteur** : Les outils existants sont souvent limités à un moteur de traitement de données spécifique, ce qui rend difficile l'adaptation à différents environnements.
+
+## Solution proposée
+
+DataLexir propose une approche innovante pour résoudre ces problèmes :
+
+1. **Exploration interactive sur échantillons** : Permet de travailler sur des échantillons légers dans des notebooks Jupyter, avec une interface intuitive et des widgets interactifs.
+2. **Capture de l'intention** : Enregistre automatiquement toutes les transformations appliquées lors de l'exploration, créant un historique complet et traçable.
+3. **Conservation de la logique en TOML** : Stocke la logique d'exploration dans un format TOML léger, facilitant la conversion en pipelines de production ainsi que la possibilité de commenter l'intention métier.
+4. **Génération automatique de pipelines** : Convertit la logique d'exploration en pipelines de production pour Pandas, Spark, Go, Rust, etc., avec une optimisation automatique des opérations.
+5. **Support multi-moteur** : Permet de générer des pipelines pour différents moteurs de traitement de données, offrant une flexibilité maximale pour les gestionnaires de données.
+6. **Evolutivité** : Permet de faire évoluer les pipelines en fonction de l'évolution des données et des besoins métier, avec une traçabilité complète des changements et de leur impact sur les performances.
+
+## Fonctionnalités clés
 
 - 🔬 **Exploration interactive** : Travaillez sur des échantillons de données dans des notebooks
+- 📝 **Capture de l'intention** : Historique complet de toutes les transformations appliquées
 - 🏗️ **Génération automatique de pipelines** : Convertissez votre exploration en code de production
-- ⚡ **Multi-moteur** : Support de Pandas et Apache Spark
+- ⚡ **Multi-moteur** : Support de Pandas et Apache Spark, mais aussi de langages compilés comme Go et Rust
 - 🎮 **Interface intuitive** : Widgets interactifs pour une exploration sans code
-- 📊 **Traçabilité complète** : Historique détaillé de toutes les transformations
-
-## 🚀 Installation
-
-### Via pip (recommandé)
-
-```bash
-pip install datalexir
-```
-
-### Installation en mode développement
-
-```bash
-git clone https://github.com/remiv1/data_elexir.git
-cd data_elexir
-pip install -e .
-```
-
-## 🏗️ Architecture
-
-DataLexir est organisé en trois modules principaux :
-
-### 📚 `elexbook` - Exploration Interactive
-
-Module d'exploration de données avec échantillonnage intelligent pour les notebooks Jupyter.
-
-**Fonctionnalités :**
-
-- Échantillonnage intelligent des datasets volumineux
-- Interface interactive avec widgets Jupyter
-- Historique automatique des transformations
-- Assignation dynamique des types de colonnes
-
-### 🐼 `elexdas` - Pipeline Pandas
-
-Générateur et exécuteur de pipelines pour Pandas.
-
-**Fonctionnalités :**
-
-- Conversion des explorations en pipelines Pandas
-- Optimisation automatique des opérations
-- Support complet de l'écosystème Pandas
-
-### ⚡ `elexpark` - Pipeline Spark
-
-Générateur et exécuteur de pipelines pour Apache Spark.
-
-**Fonctionnalités :**
-
-- Conversion des explorations en pipelines Spark
-- Optimisation pour les gros volumes de données
-- Distribution automatique des calculs
-
-## 📋 Guide d'utilisation rapide
-
-### 1. Exploration avec Elexbook
-
-```python
-import pandas as pd
-from datalexir.elexbook import Elexbook
-
-# Chargement d'un dataset volumineux
-df = pd.read_csv('mon_gros_dataset.csv')
-
-# Création d'un elexbook avec échantillonnage (30% par défaut)
-book = Elexbook(df, sample=0.1)
-
-# Exploration interactive
-book.head()
-book.describe()
-book.dropna()
-book.fillna(0)
-
-# Interface interactive pour les types de colonnes
-book.dynamic_type_assignment()
-
-# Génération du pipeline
-pipeline = book.concatbook()
-```
-
-### 2. Application avec Elexdas (Pandas)
-
-```python
-from datalexir.elexdas import Elexdas
-
-# Application du pipeline sur les données complètes
-elexdas = Elexdas(df)
-result = elexdas.pipeline(pipeline)
-```
-
-### 3. Application avec Elexpark (Spark)
-
-```python
-from datalexir.elexpark import Elexpark
-from pyspark.sql import SparkSession
-
-# Initialisation Spark
-spark = SparkSession.builder.appName("DataLexir").getOrCreate()
-sdf = spark.read.csv('mon_gros_dataset.csv', header=True, inferSchema=True)
-
-# Application du pipeline sur Spark
-elexpark = Elexpark(sdf)
-result = elexpark.pipeline(pipeline)
-```
+- 📊 **Traçabilité complète** : Historique détaillé de toutes les transformations et versionning des pipelines
 
 ## 🎯 Cas d'usage : Analyse de données de ventes
 
@@ -137,7 +57,7 @@ sales_data = pd.read_csv('sales_10M_rows.csv')
 print(f"Dataset complet : {len(sales_data):,} lignes")
 
 # Exploration interactive sur 1% des données
-book = Elexbook(sales_data, sample=0.01)
+book = Elexbook.read_csv('sales_10M_rows.csv', sample=0.01)
 print(f"Échantillon : {len(book.sample):,} lignes")
 
 # Nettoyage interactif
@@ -167,64 +87,28 @@ spark_processor = Elexpark(spark_sales_data)
 clean_sales_data_spark = spark_processor.pipeline(cleaning_pipeline)
 ```
 
-## 🔧 Installation des dépendances
-
-### Dépendances principales
-
-```bash
-pip install pandas numpy ipywidgets jupyter
-```
-
-### Pour le support Spark (optionnel)
-
-```bash
-pip install pyspark
-```
-
-### Pour le développement
-
-```bash
-pip install -r requirements-dev.txt
-```
-
-
 ## 📚 Documentation
 
-Pour une documentation complète, consultez :
+Pour une documentation complète, consultez (_Documentation à réaliser_) :
 
 - [Guide de démarrage rapide](documentation/guide-demarrage.md)
 - [Référence API](documentation/api-reference.md)
 - [Exemples d'utilisation](documentation/exemples.md)
 - [Notebooks de démonstration](notebooks/)
 
-## 🤝 Contribuer
+## Contribuer
 
-Nous encourageons les contributions ! DataLexir est un projet open source en pleine croissance.
-
-### Comment contribuer
-
-1. **Fork** le repository
-2. **Créez** une branche pour votre fonctionnalité (`git checkout -b feature/ma-nouvelle-fonctionnalite`)
-3. **Committez** vos changements (`git commit -m 'Ajout d'une nouvelle fonctionnalité'`)
-4. **Pushez** vers la branche (`git push origin feature/ma-nouvelle-fonctionnalite`)
-5. **Ouvrez** une Pull Request
-
-### Directives de contribution
-
-- Suivez les conventions de code Python (PEP 8)
-- Ajoutez des tests pour toutes les nouvelles fonctionnalités
-- Documentez vos changements
-- Assurez-vous que tous les tests passent
+Nous encourageons les contributions ! DataLexir est un projet open source encore en phase de projet.
 
 Pour plus de détails, consultez [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## 👥 Équipe
+## Équipe
 
 **Créateur et mainteneur principal**:
 
-- **Rémi Verschuur** ([@remiv1](https://github.com/remiv1)) - *Créateur et architecte principal*
+- **Rémi Verschuur** ([@remiv1](https://github.com/remiv1))
 
-### Rejoignez l'équipe !
+### Rejoignez l'équipe
 
 Nous recherchons des contributeurs passionnés pour faire grandir DataLexir. Si vous êtes intéressé par :
 
@@ -232,28 +116,13 @@ Nous recherchons des contributeurs passionnés pour faire grandir DataLexir. Si 
 - L'ingénierie des données
 - L'UX/UI pour les outils de données
 - La documentation technique
+- Le développement Go ou Rust pour les pipelines de production
 
-N'hésitez pas à nous contacter !
+N'hésitez pas à me contacter !
 
 ## 📄 Licence
 
 Ce projet est sous licence Apache License 2.0. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
-```txt
-Copyright 2025 DataLexir Contributors
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
 
 ## 🎯 Roadmap
 
@@ -272,4 +141,3 @@ Bien qu'aucune roadmap formelle ne soit définie pour le moment, les prochaines 
 
 - [Issues GitHub](https://github.com/remiv1/data_elexir/issues)
 - [Discussions](https://github.com/remiv1/data_elexir/discussions)
-- [PyPI Package](https://pypi.org/project/datalexir/)

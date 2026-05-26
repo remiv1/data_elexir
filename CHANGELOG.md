@@ -8,6 +8,7 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [Non publié]
 
 ### Planifié
+
 - Interface web pour DataLexir
 - Support de formats de données supplémentaires (Parquet, Avro)
 - Optimisations de performance pour les gros datasets
@@ -16,6 +17,7 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [0.1.0] - 2025-08-28
 
 ### Ajouté
+
 - **Elexbook** : Module d'exploration interactive de données
   - Échantillonnage intelligent des datasets volumineux
   - Interface interactive avec widgets Jupyter
@@ -47,11 +49,13 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   - Support des widgets interactifs IPython
 
 ### Configuration
+
 - Python 3.8+ requis
 - Dépendances : pandas, numpy, ipywidgets, ipython, matplotlib, jupyter
 - Dépendances optionnelles : pyspark pour le support Spark
 
 ### Documentation
+
 - Guide d'installation et d'utilisation
 - Exemples de cas d'usage pour gestionnaires de données
 - Architecture détaillée des trois modules
